@@ -4,7 +4,7 @@ import { Action } from 'typescript-fsa';
 
 type ActionPayload<P> = P extends Action<infer AP> ? AP : P;
 
-export type Controller<P = any, T = any> = (dispatch: Dispatch<Action<ActionPayload<P>>>, props: T) => void;
+export type Controller<T = any, P = any> = (dispatch: Dispatch<Action<ActionPayload<P>>>, props: T) => void;
 type CurriedController<T = any> = (props: T) => void;
 
 type CreateControllerFactory = <P>(dispatch: Dispatch<Action<ActionPayload<P>>>) => ControllerFactory<P>;
